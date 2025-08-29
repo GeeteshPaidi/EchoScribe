@@ -1,0 +1,4 @@
+audio_files/
+echoscribe/
+app/__pycache__/
+.env
