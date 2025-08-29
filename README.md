@@ -48,7 +48,7 @@ Follow these instructions to set up and run the project locally.
 ```bash
 # 1. Clone the repository
 git clone https://github.com/GeeteshPaidi/EchoScribe.git
-cd echo-scribe/backend
+cd EchoScribe/backend
 
 # 2. Create and activate a Python virtual environment
 python -m venv venv
@@ -67,16 +67,20 @@ source venv/bin/activate
 >    ```
 >    HF_TOKEN="hf_YourSecretTokenGoesHere"
 >    ```
+> 5. **Accept the model license**: Visit [pyannote/speaker-diarization](https://huggingface.co/pyannote/speaker-diarization) and accept the license agreement.
 
-```bash
 # 4. Install all required Python packages
 pip install -r requirements.txt
 
-# 5. Start the backend server
-uvicorn app.main:app --reload
-```
+# 5. Verify FFmpeg installation
+ffmpeg -version
 
-The backend API is now running, typically at `http://127.0.0.1:8000`.
+# 6. Start the backend server
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+
+The backend API is now running at `http://127.0.0.1:8000` (or `http://localhost:8000`).
+
+> **Note:** The first time you run the server, it will download the required AI models which may take several minutes depending on your internet connection.
 
 ### 2. Frontend Setup (Web Interface)
 
@@ -84,7 +88,7 @@ Open a **new terminal** for the frontend.
 
 ```bash
 # 1. Navigate to the frontend directory
-cd echo-scribe/frontend
+cd EchoScribe/frontend
 
 # 2. Install Node.js dependencies
 npm install
@@ -111,7 +115,7 @@ This project provides a solid foundation. Future enhancements could include:
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome. Feel free to check the [issues page](https://github.com/your-username/echo-scribe/issues) if you want to contribute.
+Contributions, issues, and feature requests are welcome.
 
 1.  **Fork the Project**
 2.  **Create your Feature Branch** (`git checkout -b feature/NewFeature`)
