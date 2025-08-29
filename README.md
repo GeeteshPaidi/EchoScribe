@@ -5,25 +5,23 @@
   <img src="https://img.shields.io/badge/Next.js-14+-black.svg" alt="Next.js Version">
 </p>
 
-An AI-powered web application that transforms any YouTube video into a structured, multi-faceted content analysis. EchoScribe ingests a YouTube URL and delivers a concise summary, a full speaker-labeled transcript, and a text-to-speech narration of the summary, all within a clean, modern user interface.
+An AI-powered web application that transforms any YouTube video into a structured, multi-faceted content analysis. EchoScribe ingests a YouTube URL and delivers a concise summary, a full speaker-labelled transcript, and a text-to-speech narration of the summary, within a modern user interface.
 
 ---
 
 ## Overview & Core Features
 
-EchoScribe serves as an end-to-end demonstration of a modern AI pipeline, from raw audio processing to sophisticated content generation. It is designed to be a powerful tool for quickly digesting video content without needing to watch it.
-
 *   **YouTube URL Ingestion**: Accepts any public YouTube video as the input source.
 *   **Automated Audio Processing**: Implements a pipeline that includes downloading, noise reduction, and format conversion to prepare the audio for analysis.
 *   **AI-Powered Transcription**: Leverages OpenAI's **Whisper** model to generate a highly accurate text transcript of the video's audio content.
-*   **Speaker Diarization**: Utilizes `pyannote.audio` to distinguish between different speakers in the conversation, assigning distinct labels (e.g., `SPEAKER_00`, `SPEAKER_01`) to the corresponding parts of the transcript.
-*   **AI-Generated Summarization**: Employs a **BART**-based transformer model to read the entire transcript and generate a concise, abstractive summary of the key points.
+*   **Speaker Diarization**: Utilises `pyannote.audio` to distinguish between different speakers in the conversation, assigning distinct labels (e.g., `SPEAKER_00`, `SPEAKER_01`) to the corresponding parts of the transcript.
+*   **AI-Generated Summarisation**: Employs a **BART**-based transformer model to read the entire transcript and generate a concise, abstractive summary of the key points.
 *   **Text-to-Speech Synthesis**: Generates a high-quality, spoken narration of the summary using Microsoft's **SpeechT5** model, allowing for auditory consumption of the content.
 *   **Modern Full-Stack Architecture**: Built with a decoupled **FastAPI** backend for AI processing and a **Next.js** (React) frontend for a seamless user experience.
 
 ## Tech Stack
 
-The project utilizes a robust and modern technology stack, showcasing best practices in both AI engineering and web development.
+The project utilises a robust and modern technology stack, showcasing best practices in both AI engineering and web development.
 
 | Area      | Technology                                                                                           |
 | :-------- | :--------------------------------------------------------------------------------------------------- |
@@ -57,17 +55,8 @@ source venv/bin/activate
 # On Windows:
 .\venv\Scripts\activate
 
-# 3. Set up Hugging Face Authentication
-
-> **IMPORTANT:** This project requires a Hugging Face Access Token to download the speaker diarization model.
-> 1. Create a free account at [huggingface.co](https://huggingface.co).
-> 2. Go to your settings and create a new Access Token with "read" permissions.
-> 3. In the `backend` directory, create a file named `.env`.
-> 4. Add your token to the file like this:
->    ```
->    HF_TOKEN="hf_YourSecretTokenGoesHere"
->    ```
-> 5. **Accept the model license**: Visit [pyannote/speaker-diarization](https://huggingface.co/pyannote/speaker-diarization) and accept the license agreement.
+# 3. In the `backend` directory, create a file named `.env`. Add your token to the file like this:
+HF_TOKEN="hf_YourSecretTokenGoesHere"
 
 # 4. Install all required Python packages
 pip install -r requirements.txt
@@ -77,10 +66,10 @@ ffmpeg -version
 
 # 6. Start the backend server
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
-
+```
 The backend API is now running at `http://127.0.0.1:8000` (or `http://localhost:8000`).
 
-> **Note:** The first time you run the server, it will download the required AI models which may take several minutes depending on your internet connection.
+> **Note:** The first time you run the server, it will download the required AI models, which may take several minutes depending on your internet connection.
 
 ### 2. Frontend Setup (Web Interface)
 
